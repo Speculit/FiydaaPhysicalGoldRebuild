@@ -310,8 +310,8 @@ function Address() {
 
 
 
-    
-    
+
+
 
     const handleAddressSelect = (address) => {
         setFormDetails({
@@ -1321,147 +1321,74 @@ function Address() {
 
 
             <Modal open={openModal} onClose={handleCloseModal}>
-                <div class="absolute flex top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 h-5/6 bg-white shadow-lg sm:w-3/5 sm:h-5/6 font-poppins">
+                <div class="absolute flex top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 h-5/6 bg-white shadow-lg sm:w-3/5 sm:h-5/6 font-poppins ">
+                        <div className=' bg-newLightBlue items-center justify-center'>
+                            <div className=" mt-0 flex items-center justify-center xl:mt-24">
+                                <img
+                                    src={coinsBig}
+                                    alt="Your Image"
+                                    className="w-4/6 md:w-4/6 h-auto object-contain mt-4"
+                                />
+                            </div>
 
-                    <div className=' bg-newLightBlue items-center justify-center'>
-                        <div className="flex items-center justify-center">
-                            <img
-                                src={coinsBig}
-                                alt="Your Image"
-                                className="w-4/6 md:w-4/6  lg:1/6 h-auto object-cover mt-4"
-                            />
-                        </div>
+                            <div className="mt-10">
+                                {isExistingCustomer === null && (
+                                    <div className='mt-0 lg:mt-20'>
 
-                        <div className="">
-                            {isExistingCustomer === null && (
-                                <>
+                                        <h2 className="text-xl font-semibold mb-4 text-center text-white font-poppins">Are you an existing customer?</h2>
 
-                                    <h2 className="text-xl font-semibold mb-4 text-center text-white font-poppins">Are you an existing customer?</h2>
+                                        <div className="self-center flex flex-col sm:flex-row justify-center items-center gap-3 w-full md:w-4/5 mx-auto">
+                                            <button
+                                                onClick={handleExistingCustomer}
+                                                className={`w-5/6 sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}>
+                                                Yes
+                                            </button>
+                                            <button
+                                                onClick={handleNewCustomer}
+                                                className={`w-5/6  sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}>
+                                                No
+                                            </button>
+                                        </div>
 
-                                    <div className="self-center flex flex-col sm:flex-row justify-center items-center gap-3 w-full md:w-4/5 mx-auto">
-                                        <button
-                                            onClick={handleExistingCustomer}
-                                            className={`w-5/6 sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}>
-                                            Yes
-                                        </button>
-                                        <button
-                                            onClick={handleNewCustomer}
-                                            className={`w-5/6  sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}>
-                                            No
-                                        </button>
                                     </div>
+                                )}
 
-                                </>
-                            )}
+                                {isExistingCustomer === true && (
+                                    <div className="sm:px-4 sm:py-8">
+                                        {!otpSentLogin && (
+                                            <>
+                                                <div className="flex justify-center items-center w-full">
+                                                    <div className="flex flex-col items-center justify-center">
+                                                        <label className=" text-newDarkGold  text-sm sm:text-lg md:text-xl font-poppins px-5 sm:px-0">
+                                                            Mobile Number *
+                                                        </label>
+                                                        <div className="mx-8 flex justify-center items-center w-9/12 sm:w-full mt-2 mb-4 p-2 sm:p-2 gap-3 sm:gap-2 border-2 border-newDarkGold rounded-xl sm:justify-center md:justify-center">
+                                                            <p className="text-newDarkGold text-md sm:text-xl md:text-xl text-center">+91 |</p>
+                                                            <input
+                                                                type="text"
+                                                                placeholder="Enter your mobile number"
+                                                                value={formDetails.mobileNumber}
+                                                                onChange={handleChange}
+                                                                maxLength={10}
+                                                                required
+                                                                id="mobileNumber"
+                                                                name="mobileNumber"
+                                                                className="bg-inherit w-8/12 sm:w-10/12 md:w-10/12 text-md sm:text-md md:text-md font-inter text-white focus:outline-none placeholder:font-thin placeholder:text-md placeholder:text-slate-400 text-left"
+                                                            />
+                                                        </div>
 
-                            {isExistingCustomer === true && (
-                                <div className="sm:px-4 sm:py-8">
-                                    {!otpSentLogin && (
-                                        <>
-                                            <div className="flex justify-center items-center w-full">
-                                                <div className="flex flex-col items-center justify-center mt-0 sm:mt-0 md:mt-[-5rem] lg:mt-[-5rem]">
-                                                    <label className=" text-newDarkGold  text-sm sm:text-lg md:text-xl font-poppins px-5 sm:px-0">
-                                                        Mobile Number *
-                                                    </label>
-                                                    <div className="mx-8 flex justify-center items-center w-9/12 sm:w-full mt-2 mb-4 p-2 sm:p-2 gap-3 sm:gap-2 border-2 border-newDarkGold rounded-xl sm:justify-center md:justify-center">
-                                                        <p className="text-newDarkGold text-md sm:text-xl md:text-xl text-center">+91 |</p>
-                                                        <input
-                                                            type="text"
-                                                            placeholder="Enter your mobile number"
-                                                            value={formDetails.mobileNumber}
-                                                            onChange={handleChange}
-                                                            maxLength={10}
-                                                            required
-                                                            id="mobileNumber"
-                                                            name="mobileNumber"
-                                                            className="bg-inherit w-8/12 sm:w-10/12 md:w-10/12 text-md sm:text-md md:text-md font-inter text-white focus:outline-none placeholder:font-thin placeholder:text-md placeholder:text-slate-400 text-center sm:text-center md:text-center"
-                                                        />
                                                     </div>
-
-                                                </div>
-                                            </div>
-
-
-
-
-                                            <div className="self-center flex flex-col sm:flex-row justify-center items-center gap-3 w-full md:w-4/5 mx-auto">
-                                                <button
-                                                    onClick={!loading ? () => {
-                                                        handleLogin();
-                                                        startSecondTimer();  // Start the first timer after login
-                                                    } : null} disabled={loading}
-                                                    className={`w-5/6  sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}>
-                                                    {loading ? (
-                                                        <svg
-                                                            className="animate-spin h-5 w-5 text-newDarkBlue"  // Set color to newDarkBlue
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            fill="none"
-                                                            viewBox="0 0 24 24"
-                                                        >
-                                                            <circle
-                                                                className="opacity-25"
-                                                                cx="12"
-                                                                cy="12"
-                                                                r="10"
-                                                                stroke="currentColor"
-                                                                strokeWidth="4"
-                                                            ></circle>
-                                                            <path
-                                                                className="opacity-75"
-                                                                fill="currentColor"
-                                                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                                                            ></path>
-                                                        </svg>
-
-                                                    ) : (
-                                                        "Login"
-                                                    )}
-                                                </button>
-
-                                                <button onClick={handleBack} className={`w-5/6  sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}>
-                                                    Back
-                                                </button>
-                                            </div>
-
-                                        </>
-                                    )
-                                    }
-
-                                    {
-                                        otpSentLogin && (
-                                            <div className="flex flex-col items-center justify-center mt-0 sm:mt-0 md:mt-[-5rem] lg:mt-[-5rem]">
-
-                                                <label className=" text-newDarkGold  text-sm sm:text-lg md:text-xl font-poppins px-5 sm:px-0">
-                                                    OTP
-                                                </label>
-
-
-                                                <div className=" mx-3 mt-2 mb-4 p-1  border-2 border-newDarkGold rounded-xl justify-center items-center ">
-                                                    <input
-                                                        type="text"
-                                                        placeholder="Enter 6-digit OTP"
-                                                        value={otpLogin}
-                                                        onChange={handleOtpChangeLogin}
-                                                        // onKeyDown={handleKeyPressOtp}
-                                                        maxLength={6}
-                                                        className=" bg-inherit text-xl font-inter text-white  focus:outline-none placeholder:font-thin placeholder:text-md placeholder:text-slate-400 focus:border-none  "
-                                                    />
                                                 </div>
 
-                                                <div className="flex mb-10 justify-center">
-                                                    <button
-                                                        onClick={handleResend}
-                                                        disabled={!resendActiveLogin} // Disable the button when it's not active
-                                                        className={`text-newDarkGold ${!resendActiveLogin && "opacity-50 cursor-not-allowed" // Apply styles when button is disabled
-                                                            }`}
-                                                    >
-                                                        {resendActiveLogin ? "Resend OTP" : `Resend OTP (${timerLogin}s)`}
-                                                    </button>
-                                                </div>
+
+
+
                                                 <div className="self-center flex flex-col sm:flex-row justify-center items-center gap-3 w-full md:w-4/5 mx-auto">
                                                     <button
-                                                        onClick={handleVerify}
-                                                        disabled={loading}
+                                                        onClick={!loading ? () => {
+                                                            handleLogin();
+                                                            startSecondTimer();  // Start the first timer after login
+                                                        } : null} disabled={loading}
                                                         className={`w-5/6  sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}>
                                                         {loading ? (
                                                             <svg
@@ -1486,220 +1413,291 @@ function Address() {
                                                             </svg>
 
                                                         ) : (
-                                                            "Submit OTP"
+                                                            "Login"
                                                         )}
                                                     </button>
-                                                    <button
-                                                        onClick={() => {
-                                                            if (otpSentLogin) {
-                                                                setOtpSentLogin(false); // Go back to mobile input step
-                                                            }
-                                                        }}
-                                                        className={`w-5/6  sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
-                                                    >
+
+                                                    <button onClick={handleBack} className={`w-5/6  sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}>
                                                         Back
                                                     </button>
+                                                </div>
+
+                                            </>
+                                        )
+                                        }
+
+                                        {
+                                            otpSentLogin && (
+                                                <div className="flex flex-col items-center justify-center">
+
+                                                    <label className=" text-newDarkGold  text-sm sm:text-lg md:text-xl font-poppins px-5 sm:px-0">
+                                                        OTP
+                                                    </label>
+
+
+                                                    <div className=" mx-3 mt-2 mb-4 p-1  border-2 border-newDarkGold rounded-xl justify-center items-center ">
+                                                        <input
+                                                            type="text"
+                                                            placeholder="Enter 6-digit OTP"
+                                                            value={otpLogin}
+                                                            onChange={handleOtpChangeLogin}
+                                                            // onKeyDown={handleKeyPressOtp}
+                                                            maxLength={6}
+                                                            className=" bg-inherit text-xl font-inter text-white  focus:outline-none placeholder:font-thin placeholder:text-md placeholder:text-slate-400 focus:border-none  "
+                                                        />
+                                                    </div>
+
+                                                    <div className="flex mb-10 justify-center">
+                                                        <button
+                                                            onClick={handleResend}
+                                                            disabled={!resendActiveLogin} // Disable the button when it's not active
+                                                            className={`text-newDarkGold ${!resendActiveLogin && "opacity-50 cursor-not-allowed" // Apply styles when button is disabled
+                                                                }`}
+                                                        >
+                                                            {resendActiveLogin ? "Resend OTP" : `Resend OTP (${timerLogin}s)`}
+                                                        </button>
+                                                    </div>
+                                                    <div className="self-center flex flex-col sm:flex-row justify-center items-center gap-3 w-full md:w-4/5 mx-auto">
+                                                        <button
+                                                            onClick={handleVerify}
+                                                            disabled={loading}
+                                                            className={`w-5/6  sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}>
+                                                            {loading ? (
+                                                                <svg
+                                                                    className="animate-spin h-5 w-5 text-newDarkBlue"  // Set color to newDarkBlue
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    fill="none"
+                                                                    viewBox="0 0 24 24"
+                                                                >
+                                                                    <circle
+                                                                        className="opacity-25"
+                                                                        cx="12"
+                                                                        cy="12"
+                                                                        r="10"
+                                                                        stroke="currentColor"
+                                                                        strokeWidth="4"
+                                                                    ></circle>
+                                                                    <path
+                                                                        className="opacity-75"
+                                                                        fill="currentColor"
+                                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                                                                    ></path>
+                                                                </svg>
+
+                                                            ) : (
+                                                                "Submit OTP"
+                                                            )}
+                                                        </button>
+                                                        <button
+                                                            onClick={() => {
+                                                                if (otpSentLogin) {
+                                                                    setOtpSentLogin(false); // Go back to mobile input step
+                                                                }
+                                                            }}
+                                                            className={`w-5/6  sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
+                                                        >
+                                                            Back
+                                                        </button>
+
+                                                    </div>
+                                                </div>
+                                            )
+                                        }
+                                    </div>
+                                )}
+
+                                {isExistingCustomer === false && (
+                                    <div className="px-2 py-4 sm:px-4 sm:py-8">
+                                        {!otpSent && (
+                                            <div className="justify-center items-center">
+                                                <label className="text-newDarkGold text-lg font-poppins ">
+                                                    Mobile Number *
+                                                </label>
+                                                <div className="flex justify-center items-center w-full  mt-2 mb-2 p-2 gap-3 sm:gap-2 border-2 border-newDarkGold rounded-xl sm:justify-center md:justify-center ">
+                                                    <p className="text-newDarkGold text-md sm:text-xl md:text-xl text-center">+91 |</p>
+                                                    <input
+                                                        type="text"
+                                                        placeholder="Enter your mobile number"
+                                                        value={formDetails.mobileNumber}
+                                                        onChange={handleChange}
+                                                        maxLength={10}
+                                                        id="mobileNumber"
+                                                        name="mobileNumber"
+                                                        className="bg-inherit w-8/12 sm:w-10/12 md:w-10/12 text-md sm:text-md md:text-md font-inter text-white focus:outline-none placeholder:font-thin placeholder:text-md placeholder:text-slate-400 "
+                                                    />
+                                                </div>
+                                                {message === "Mobile Number" && (
+                                                    <p className="text-red-500 mb-1 font-normal text-sm">
+                                                        Please Enter a valid Mobile Number
+                                                    </p>
+                                                )}
+
+                                                <div className="flex-row mt-4 mb-2">
+                                                    <select
+                                                        value={selectedStateForSignup}
+                                                        onChange={handleStateChangeForSignup}
+                                                        className="bg-white px-5 py-2 rounded-xl  border-2 border-newDarkGold"
+                                                    >
+                                                        <option value="">Select State</option>
+                                                        {stateData.map((state) => (
+                                                            <option key={state.id} value={state.name}>
+                                                                {state.name}
+                                                            </option>
+                                                        ))}
+                                                    </select>
+                                                </div>
+                                                {message === "Selected State" && (
+                                                    <p className="text-red-500 mb-2 font-normal text-sm">
+                                                        Please Select a state
+                                                    </p>
+                                                )}
+                                                <div className="flex items-center mb-2">
+                                                    <Link to="/privacy-policy" target="_blank" rel="noopener noreferrer">
+
+                                                        <p
+                                                            className="font-normal text-sm text-newDarkGold items-center hover:text-newLightGold"
+                                                            htmlFor="termsCheckbox"
+                                                        >
+                                                            <input
+                                                                id="termsCheckbox"
+                                                                type="checkbox"
+                                                                checked={isChecked}
+                                                                onChange={handleCheckboxChange}
+                                                                className="mr-2  ring-newDarkGold"
+                                                            />
+                                                            Terms & Conditions
+                                                        </p>
+                                                    </Link>
 
                                                 </div>
-                                            </div>
-                                        )
-                                    }
-                                </div>
-                            )}
-
-                            {isExistingCustomer === false && (
-                                <div className="sm:px-4 sm:py-8">
-                                    {!otpSent && (
-                                        <div className="justify-center items-center mt-0 sm:mt-0 md:mt-[-8rem]">
-                                            <label className="text-newDarkGold text-lg font-poppins ">
-                                                Mobile Number *
-                                            </label>
-                                            <div className="flex justify-center items-center w-full  mt-2 mb-2 p-2 gap-3 sm:gap-2 border-2 border-newDarkGold rounded-xl sm:justify-center md:justify-center ">
-                                                <p className="text-newDarkGold text-md sm:text-xl md:text-xl text-center">+91 |</p>
-                                                <input
-                                                    type="text"
-                                                    placeholder="Enter your mobile number"
-                                                    value={formDetails.mobileNumber}
-                                                    onChange={handleChange}
-                                                    maxLength={10}
-                                                    id="mobileNumber"
-                                                    name="mobileNumber"
-                                                    className="bg-inherit w-8/12 sm:w-10/12 md:w-10/12 text-md sm:text-md md:text-md font-inter text-white focus:outline-none placeholder:font-thin placeholder:text-md placeholder:text-slate-400 text-center sm:text-center md:text-center"
-                                                />
-                                            </div>
-                                            {message === "Mobile Number" && (
-                                                <p className="text-red-500 mb-1 font-normal text-sm">
-                                                    Please Enter a valid Mobile Number
-                                                </p>
-                                            )}
-
-                                            <div className="flex-row mt-4 mb-2">
-                                                <select
-                                                    value={selectedStateForSignup}
-                                                    onChange={handleStateChangeForSignup}
-                                                    className="bg-white px-5 py-2 rounded-xl  border-2 border-newDarkGold"
-                                                >
-                                                    <option value="">Select State</option>
-                                                    {stateData.map((state) => (
-                                                        <option key={state.id} value={state.name}>
-                                                            {state.name}
-                                                        </option>
-                                                    ))}
-                                                </select>
-                                            </div>
-                                            {message === "Selected State" && (
-                                                <p className="text-red-500 mb-2 font-normal text-sm">
-                                                    Please Select a state
-                                                </p>
-                                            )}
-                                            <div className="flex items-center mb-2">
-                                                <Link to="/privacy-policy" target="_blank" rel="noopener noreferrer">
-
-                                                    <p
-                                                        className="font-normal text-sm text-newDarkGold items-center hover:text-newLightGold"
-                                                        htmlFor="termsCheckbox"
-                                                    >
-                                                        <input
-                                                            id="termsCheckbox"
-                                                            type="checkbox"
-                                                            checked={isChecked}
-                                                            onChange={handleCheckboxChange}
-                                                            className="mr-2  ring-newDarkGold"
-                                                        />
-                                                        Terms & Conditions
+                                                {message === "Terms" && (
+                                                    <p className="text-red-500 font-normal text-sm">
+                                                        Please accept the terms & condition
                                                     </p>
-                                                </Link>
+                                                )}
+                                                <p className="text-red-500 mb-4 font-normal text-sm">{message}</p>
+                                                <div className="self-center flex flex-col sm:flex-row justify-center items-center gap-3 w-full md:w-4/5 mx-auto">
+                                                    <button
+                                                        onClick={() => {
+                                                            handleSignUp();
+                                                            startFirstTimer();
+                                                        }}
 
+                                                        className={`w-5/6  sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}>
+
+                                                        {loading ? (
+                                                            <svg
+                                                                className="animate-spin h-5 w-5 text-newDarkBlue"  // Set color to newDarkBlue
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                fill="none"
+                                                                viewBox="0 0 24 24"
+                                                            >
+                                                                <circle
+                                                                    className="opacity-25"
+                                                                    cx="12"
+                                                                    cy="12"
+                                                                    r="10"
+                                                                    stroke="currentColor"
+                                                                    strokeWidth="4"
+                                                                ></circle>
+                                                                <path
+                                                                    className="opacity-75"
+                                                                    fill="currentColor"
+                                                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                                                                ></path>
+                                                            </svg>
+
+                                                        ) : (
+                                                            "Sign Up"
+                                                        )}
+                                                    </button>
+                                                    <button onClick={handleBack}
+                                                        className={`w-5/6  sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}>
+
+                                                        Back
+                                                    </button>
+                                                </div>
                                             </div>
-                                            {message === "Terms" && (
-                                                <p className="text-red-500 font-normal text-sm">
-                                                    Please accept the terms & condition
-                                                </p>
-                                            )}
-                                            <p className="text-red-500 mb-4 font-normal text-sm">{message}</p>
-                                            <div className="self-center flex flex-col sm:flex-row justify-center items-center gap-3 w-full md:w-4/5 mx-auto">
-                                                <button
-                                                    onClick={() => {
-                                                        handleSignUp();
-                                                        startFirstTimer();
-                                                    }}
+                                        )}
 
-                                                    className={`w-5/6  sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}>
+                                        {otpSent && (
+                                            <div className="flex flex-col items-center justify-center mt-0 sm:mt-0 md:mt-[-5rem] lg:mt-[-5rem]">
+                                                <label className=" text-newDarkGold  text-sm sm:text-lg md:text-xl font-poppins px-5 sm:px-0">
+                                                    OTP
+                                                </label>
+                                                <div className=" mx-3 mt-2 mb-4 p-1  border-2 border-newDarkGold rounded-xl justify-center items-center ">
 
-                                                    {loading ? (
-                                                        <svg
-                                                            className="animate-spin h-5 w-5 text-newDarkBlue"  // Set color to newDarkBlue
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                            fill="none"
-                                                            viewBox="0 0 24 24"
-                                                        >
-                                                            <circle
-                                                                className="opacity-25"
-                                                                cx="12"
-                                                                cy="12"
-                                                                r="10"
-                                                                stroke="currentColor"
-                                                                strokeWidth="4"
-                                                            ></circle>
-                                                            <path
-                                                                className="opacity-75"
-                                                                fill="currentColor"
-                                                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                                                            ></path>
-                                                        </svg>
+                                                    <input
+                                                        type="text"
+                                                        placeholder="Enter 6-digit OTP"
+                                                        value={otp}
+                                                        onChange={handleOtpChange}
+                                                        className=" bg-inherit text-xl font-inter text-white  focus:outline-none placeholder:font-thin placeholder:text-md placeholder:text-slate-400 focus:border-none  "
+                                                    />
+                                                </div>
 
-                                                    ) : (
-                                                        "Sign Up"
-                                                    )}
-                                                </button>
-                                                <button onClick={handleBack}
-                                                    className={`w-5/6  sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}>
+                                                <div className="flex mb-10 justify-center">
+                                                    <button
+                                                        onClick={handleResendForSignUp}
+                                                        disabled={!resendActive} // Disable the button when it's not active
+                                                        className={`text-newDarkGold ${!resendActive && "opacity-50 cursor-not-allowed" // Apply styles when button is disabled
+                                                            }`}
+                                                    >
+                                                        {resendActive ? "Resend OTP" : `Resend OTP (${timer}s)`}
+                                                    </button>
+                                                </div>
 
-                                                    Back
-                                                </button>
+                                                <div className="self-center flex flex-col sm:flex-row justify-center items-center gap-3 w-full md:w-4/5 mx-auto">
+                                                    <button
+                                                        onClick={handleVerifyForSignUp}
+                                                        className={`w-5/6  sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}>
+                                                        Submit OTP
+                                                    </button>
+
+                                                    <button onClick={handleBack}
+                                                        className={`w-5/6  sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}>
+                                                        Back
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    )}
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
 
-                                    {otpSent && (
-                                        <div className="flex flex-col items-center justify-center mt-0 sm:mt-0 md:mt-[-5rem] lg:mt-[-5rem]">
-                                            <label className=" text-newDarkGold  text-sm sm:text-lg md:text-xl font-poppins px-5 sm:px-0">
-                                                OTP
-                                            </label>
-                                            <div className=" mx-3 mt-2 mb-4 p-1  border-2 border-newDarkGold rounded-xl justify-center items-center ">
-
-                                                <input
-                                                    type="text"
-                                                    placeholder="Enter 6-digit OTP"
-                                                    value={otp}
-                                                    onChange={handleOtpChange}
-                                                    className=" bg-inherit text-xl font-inter text-white  focus:outline-none placeholder:font-thin placeholder:text-md placeholder:text-slate-400 focus:border-none  "
-                                                />
-                                            </div>
-
-                                            <div className="flex mb-10 justify-center">
-                                                <button
-                                                    onClick={handleResendForSignUp}
-                                                    disabled={!resendActive} // Disable the button when it's not active
-                                                    className={`text-newDarkGold ${!resendActive && "opacity-50 cursor-not-allowed" // Apply styles when button is disabled
-                                                        }`}
-                                                >
-                                                    {resendActive ? "Resend OTP" : `Resend OTP (${timer}s)`}
-                                                </button>
-                                            </div>
-
-                                            <div className="self-center flex flex-col sm:flex-row justify-center items-center gap-3 w-full md:w-4/5 mx-auto">
-                                                <button
-                                                    onClick={handleVerifyForSignUp}
-                                                    className={`w-5/6  sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}>
-                                                    Submit OTP
-                                                </button>
-
-                                                <button onClick={handleBack}
-                                                    className={`w-5/6  sm:w-1/2 md:w-2/5 bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold text-newLightBlue font-poppins font-medium px-6 py-2 rounded-md flex items-center justify-center h-12 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}>
-                                                    Back
-                                                </button>
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
-                            )}
+                        <div className="hidden md:hidden  xl:flex xl:flex-col items-center justify-center bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold ">
+                            <img src={loginImage} alt="Your Image" className="w-1/2 h-auto object-cover mt-4" />
+                            <div className="flex gap-5 justify-center mb-2">
+                                <a
+                                    href="https://play.google.com/store/apps/details?id=com.fiydaa&pcampaignid=web_share"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex-shrink-0"
+                                    id='PlayStoreButton'
+                                >
+                                    <img
+                                        src={playStoreButton}
+                                        alt="Play Store"
+                                        className="h-12 sm:h-16"
+                                    />
+                                </a>
+                                <a
+                                    href="https://apps.apple.com/in/app/fiydaa-fintech-hub-by-speculit/id6475651556"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex-shrink-0"
+                                    id='AppleStoreButton'
+                                >
+                                    <img
+                                        src={appStoreButton}
+                                        alt="App Store"
+                                        className="h-12 sm:h-16"
+                                    />
+                                </a>
+                            </div>
                         </div>
                     </div>
-
-                    <div className="hidden md:hidden  xl:flex xl:flex-col items-center justify-center bg-gradient-to-r from-newDarkGold via-newLightGold to-newDarkGold ">
-                        <img src={loginImage} alt="Your Image" className="w-1/2 h-auto object-cover mt-4" />
-                        <div className="flex gap-5 justify-center mb-2">
-                            <a
-                                href="https://play.google.com/store/apps/details?id=com.fiydaa&pcampaignid=web_share"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex-shrink-0"
-                                id='PlayStoreButton'
-                            >
-                                <img
-                                    src={playStoreButton}
-                                    alt="Play Store"
-                                    className="h-12 sm:h-16"
-                                />
-                            </a>
-                            <a
-                                href="https://apps.apple.com/in/app/fiydaa-fintech-hub-by-speculit/id6475651556"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex-shrink-0"
-                                id='AppleStoreButton'
-                            >
-                                <img
-                                    src={appStoreButton}
-                                    alt="App Store"
-                                    className="h-12 sm:h-16"
-                                />
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
             </Modal>
 
 
