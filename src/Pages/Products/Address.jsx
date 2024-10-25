@@ -272,7 +272,7 @@ function Address() {
         })
             .then((response) => response.json())
             .then((data) => {
-                // console.log("Address updated successfully")
+                console.log("data")
             })
             .catch((error) => {
                 console.error('Error adding product to cart:', error);
@@ -360,12 +360,12 @@ function Address() {
                 return;
             }
         }
+        takeAddressInput_Website();
         if (!uniqueId) {
             setOpenModal(true); // Open the modal if no uniqueId
             return; // Stop further validation
         }
         setShowPaymentModal(true);
-        takeAddressInput_Website();
     };
 
 
