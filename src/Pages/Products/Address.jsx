@@ -244,12 +244,14 @@ function Address() {
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log("Address updated successfully")
+                // console.log("Address updated successfully")
             })
             .catch((error) => {
                 console.error('Error adding product to cart:', error);
             });
     };
+
+
 
 
 
@@ -278,6 +280,9 @@ function Address() {
     };
 
 
+
+
+
     const getaddressForWebsite = () => {
         let sendData = {
             status: "get",
@@ -304,6 +309,8 @@ function Address() {
 
 
 
+
+    
     
 
     const handleAddressSelect = (address) => {
