@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.fiydaa",
+    "sha256_cert_fingerprints":
+    ["A5:E6:BA:2D:3D:76:9F:DD:19:55:F5:13:84:20:ED:D5:90:23:A6:DA:72:EC:E5:E7:61:72:1A:EB:A3:52:58:7C",    "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C","11:09:3C:41:20:36:83:F0:AF:AF:38:70:1F:78:C3:8F:EA:93:F7:4A:E0:B8:B3:39:C2:5C:2C:BE:74:8F:3C:7B"]
+
+  }
+}]
